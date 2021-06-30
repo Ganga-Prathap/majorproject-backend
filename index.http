@@ -1,0 +1,19 @@
+### 1st user registration
+
+POST http://localhost:3004/register/
+Content-Type: application/json
+
+{
+    "username" : "prathap@123",
+    "password" : "prathap@567"
+}
+
+### 2nd user login
+
+POST http://localhost:3004/login/
+Content-Type: application/json
+
+{
+    "username": "prathap@1331",
+    "password": "prathap@1234"
+}

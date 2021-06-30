@@ -1,0 +1,42 @@
+CREATE TABLE user(
+    username VARCHAR(250) NOT NULL PRIMARY KEY,
+    password VARCHAR(250)
+);
+
+CREATE TABLE product(
+    id INTEGER NOT NULL PRIMARY KEY,
+    title VARCHAR(250),
+    price INTEGER,
+    brand VARCHAR(250),
+    image_url TEXT,
+    rating FLOAT
+);
+insert into product(id, title, price, brand, image_url, rating)
+values(1, 'edg', 23, 'd', 'ht', 5),
+(),
+();
+
+CREATE TABLE cart(
+    id INTEGER NOT NULL PRIMARY KEY,
+    total_price INTEGER,
+    customer_id INTEGER NOT NULL UNIQUE,
+    FOREIGN KEY (customer_id) REFERENCES user(id) ON DELETE CASCADE
+);
+
+CREATE TABLE cart_product(
+    id INTEGER NOT NULL PRIMARY KEY,
+    cart_id INTEGER,
+    product_id INTEGER,
+    FOREIGN KEY (cart_id) REFERENCES cart(id) ON DELETE CASCADE
+    FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE address(
+    id INTEGER NOT NULL PRIMARY KEY,
+    pin_code INTEGER,
+    door_no VARCHAR(250),
+    city VARCHAR(250),
+    customer_id INTEGER,
+    FOREIGN KEY (customer_id) REFERENCES user(id) ON DELETE CASCADE
+);
